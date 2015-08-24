@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Blendoku</title>
+<link rel="stylesheet" href="css/style.css" media="screen" />
+<script type="text/javascript" src="js/jquery_1_11_1.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
+<script type="text/javascript" src="js/three.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/3d.js"></script>
+<script type="text/javascript" src="js/dragndrop.js"></script>
+<script type="text/javascript" src="js/menuControl.js"></script>
+<script type="text/javascript" src="js/selectLevel.js"></script>
+<script type="text/javascript" src="js/placeGrid.js"></script>
+<script type="text/javascript" src="js/jsonHandler.js"></script>
+<script type="text/javascript">
+		// responsive design on initial loading of page
+		$(document).ready(function(){
+			if($(window).height() <= 800){
+				$('.login.open form').css("bottom", "-20%");
+			}
+			
+			if($(window).height() <= 910 && $(window).height() > 860){
+				$('.login.open form').css("bottom", "-15%");
+			}
+			if($(window).height() > 910){
+				$('.login.open form').css("bottom", "0%");
+			}
+			
+			if($(window).width() < 769){
+				$('.login.open form').css("bottom", "-15%");
+			}
+			
+			if($(window).height() < 860 && $(window).height() > 800){
+				$('.login.open form').css("bottom", "-20% !important");
+				$('.tutorialGUI.open').css("top", "20%");
+				$('.difficultySelection.open').css("bottom", "-20%");
+				$('.allLevels.open').css("bottom", "-20%");
+			}
+		});
+		
+		// responsive design whenever window is resized
+		$(window).resize(function(){
+		if($(window).height() <= 910 && $(window).height() > 860){
+			$('.login.open form').css("bottom", "-15%");
+		}
+		if($(window).height() < 860 && $(window).height() > 800){
+			$('.login.open form').css("bottom", "-20% !important");
+			$('.tutorialGUI.open').css("top", "20%");
+			$('.difficultySelection.open').css("bottom", "-20%");
+			$('.allLevels.open').css("bottom", "-20%");
+		}
+		if($(window).height() <= 800){
+			$('.login.open form').css("bottom", "-20%");
+		}
+		if($(window).height() > 910){
+			$('.login.open form').css("bottom", "0%");
+		}
+		
+		if($(window).width() < 769){
+			$('.login.open form').css("bottom", "-15%");
+		}
+		
+	});
+</script>
+</head>
+<body>
+
+<div id="wrapper">
+	<ul class="tablet_navi">
+        <li class="back">zum Menü</li>
+        <li class="finish">lösen</li>
+    </ul>
+	<div id="left">
+	    <div class="ingame_owl"></div>
+        <ul class="leftMenu">
+            <li class="back">zum Menü</li>
+            <li class="finish">lösen</li>
+        </ul>
+	</div>
+    <div class="tutorialGUI"><iframe width="100%" height="100%" src="//player.vimeo.com/video/110459881" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+    <div class="levelSelection">
+		<div class="difficultySelection">
+        	<div class="easy difficulty"><span>leicht</span></div>
+            <div class="middle difficulty">mittel</div>
+            <div class="hard difficulty"><span>schwer</span></div>
+        </div>
+    	<div class="allLevels">
+            <div class="chooseLevel first" level="">1</div>
+            <div class="chooseLevel second" level="">2</div>
+            <div class="chooseLevel third" level="">3</div>
+            <div class="chooseLevel fourth" level="">4</div>
+        	<div class="chooseLevel fifth" level="">5</div>
+        </div>
+    </div>
+    <div class="highscoreContainer"></div>
+    <div id="foreground">
+    	<div class="logout">Logout</div>
+    	<div class="inside">
+        	<div class="login">
+            	<div class="form_explanation">Melde dich einfach mit deinem Wunschnamen und deinem Passwort an um das Spiel zu spielen. Falls dein Wunschname schon vergeben sein sollte benutze bitte einen anderen. </div>
+            	<form action="" method="POST">
+                	<!--<label for="username">Benutzername:</label>-->
+                    <input type="text" id="username" name="_username" placeholder="Benutzername"/>
+                    <!--<label for="password">Passwort:</label>-->
+                    <input type="password" id="password" name="_password" placeholder="Passwort"/>
+                    <button class="button">anmelden</button>
+                </form>
+               
+            </div>
+        	<div class="mainMenu">
+                <div class="rope"></div>
+                <div class="menu_owl"></div>
+                <ul class="menu">
+                	<li class="start">Start</li>
+                    <li class="tutorial">Tutorial</li>
+                    <li class="level">Level</li>
+                    <li class="highscore">Highscore</li>
+                </ul>    
+			</div>
+        </div>
+    </div>
+	<div id="webGLContainer"></div>
+	<!-- Wolken von Andrea -->
+	<div class="wolken">
+        <div class="animationHG wolkenHG">
+            <img src="img/WolkenHG.png" alt="Wolken" />
+        </div>
+        <div class="animationMitte wolkenMitte">
+            <img src="img/WolkenMitte.png" alt="Wolken" />
+        </div>
+        <div class="animationVG wolkenVG">
+            <img src="img/WolkenVG.png" alt="Wolken" />
+        </div>
+    </div>
+</div>
+</body>
+</html>
